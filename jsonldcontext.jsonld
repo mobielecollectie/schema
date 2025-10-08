@@ -5,6 +5,8 @@
         "prov": "http://www.w3.org/ns/prov#",
         "schema": "https://schema.org/",
         "skos": "http://www.w3.org/2004/02/skos/core#",
+        "type": "@type",
+        "id": "@id",
         "Thing": {
             "@id": "schema:Thing"
         },
@@ -20,6 +22,9 @@
         "URL": {
             "@id": "schema:URL"
         },
+        "Text": {
+            "@id": "schema:Text"
+        },
         "Concept": {
             "@id": "skos:Concept"
         },
@@ -29,10 +34,6 @@
         "Train": {
             "@id": "mcn:Train"
         },
-        "type": {
-            "@id": "rdf:type"
-        },
-        "id": "@id",
         "identifier": {
             "@id": "schema:identifier"
         },
