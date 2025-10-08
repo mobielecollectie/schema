@@ -1,0 +1,27 @@
+{
+    "@context": {
+        "mcn": "https://schema.mobielecollectie.nl/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "schema": "https://schema.org/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "Vehicle": {
+            "@id": "schema:Vehicle"
+        },
+        "type": {
+            "@id": "rdf:type"
+        },
+        "identifier": {
+            "@id": "schema:identifier"
+        },
+        "name": {
+            "@id": "schema:name"
+        },
+        "additionalType": {
+            "@id": "schema:additionalType"
+        },
+        "dateCreated": {
+            "@id": "schema:dateCreated"
+        }
+    }
+}

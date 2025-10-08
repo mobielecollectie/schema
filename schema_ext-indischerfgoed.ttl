@@ -1,0 +1,227 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema: <http://schema.org/> .
+@prefix pied: <https://data.indischherinneringscentrum.nl/schema/> .
+
+### This file defines and extension of schema.org for indische erfgoed.
+
+#PIED specific classes
+
+## More specific classes of schema:CreativeWork
+
+pied:Interview a rdfs:Class ;
+        rdfs:label "Interview"@nl ;
+        rdfs:subClassOf schema:CreativeWork ;
+        rdfs:comment "Type voor interviews, zoals oral history."@nl .
+
+pied:InterviewSegment a rdfs:Class ;
+        rdfs:label "InterviewSegment"@nl ;
+        rdfs:subClassOf schema:Interview ;
+        rdfs:comment "Type voor interview segmenten."@nl .
+
+pied:Fragment a rdfs:Class ;
+        rdfs:label "Fragment"@nl ;
+        rdfs:subClassOf schema:Interview ;
+        rdfs:comment "Type voor fragmenten uit srt transcripten."@nl .
+
+pied:ObjectPhotograph a rdfs:Class ;
+        rdfs:label "Objectfoto"@nl ;
+        rdfs:subClassOf schema:CreativeWork ;
+        rdfs:comment "Type voor foto's van (museale) objecten."@nl .
+
+pied:PersonArchiveCard a rdfs:Class ;
+        rdfs:label "Persoonlijk archief"@nl ;
+        rdfs:subClassOf schema:CreativeWork ;
+        rdfs:comment "Type voor archiefkaarten die betrekking hebben op één of meerdere personen."@nl .
+
+## More specific class of schema:Place
+
+pied:PointofInterest a rdfs:Class ;
+        rdfs:label "Bezienswaardigheid"@nl ;
+        rdfs:subClassOf schema:Place ;
+        rdfs:comment "Type voor bezienswaardheid (Point of Interest), zoals forten, handelsposten, kampen, monumenten, e.d."@nl .
+
+pied:Bronorganisatie a rdfs:Class ;
+        rdfs:label "Bronorganisatie"@nl ;
+        rdfs:subClassof schema:Organization ;
+        rdfs:comment "Type voor aanleverende erfgoed instellingen."@nl .
+
+pied:Story a rdfs:Class ;
+        rdfs:label "Verhaal"@nl ;
+        rdfs:subClassOf schema:Collection ;
+        rdfs:comment "Type voor een verhaal in de context van www.onsland.nl."@nl .
+
+pied:Story a rdfs:Class ;
+        rdfs:label "Kaart"@nl ;
+        rdfs:subClassOf schema:Collection ;
+        rdfs:comment "Type voor een kaart in de context van www.onsland.nl."@nl .
+
+## More specific classes of pied:Story
+
+pied:StoryComponent a rdfs:Class ;
+        rdfs:label "Verhaal component"@nl ;
+        rdfs:subClassOf pied:Story ;
+        rdfs:comment "Type voor een component van een verhaal in de context van www.onsland.nl."@nl .
+
+
+## More specific classes of schema:Event
+
+pied:LifeEvent a rdfs:Class ;
+        rdfs:label "lifeEvent"@nl ;
+        rdfs:subClassOf schema:Event ;
+        rdfs:comment "Type voor events in het leven van een persoon. Als er een specifiekere subclass beschikbaar is wordt die gebruikt."@nl .
+
+pied:TransportLifeEvent a rdfs:Class ;
+        rdfs:label "TransportLifeEvent"@nl ;
+        rdfs:subClassOf schema:Event ;
+        rdfs:comment "Type voor een transport event over land, zee of door de lucht die specifiek is voor één persoon (het is een soort lifeEvent). Als er een specifiekere subclass beschikbaar is wordt die gebruikt."@nl .
+
+pied:TransferEvent a rdfs:Class ;
+        rdfs:label "TransferEvent"@nl ;
+        rdfs:subClassOf schema:Event ;
+        rdfs:comment "Type voor een transport event over land, zee of door de lucht als deze an sich beschreven wordt."@nl .
+
+
+# PIED specific properties
+
+pied:thema a rdf:Property ;
+        rdfs:label "Thema"@nl ;
+        rdfs:comment "Relatie voor het vastleggen van het thema waarbij een concept hoort"@nl ;
+        schema:domainIncludes schema:Event, pied:Story ;
+        schema:rangeIncludes schema:URL .
+
+pied:relatedStory a rdf:Property ;
+        rdfs:label "Gerelateerd verhaal"@nl ;
+        rdfs:comment "Relatie voor het vastleggen van een gerelateerd verhaal"@nl ;
+        schema:domainIncludes pied:Story ;
+        schema:rangeIncludes pied:Story .
+
+pied:birthYear a rdf:Property ;
+        rdfs:label "Geboortejaar"@nl ;
+        rdfs:comment "Bij personen gebruikt voor het geboortejaar als de volledige geboortedatum niet bekend is"@nl ;
+        schema:domainIncludes schema:Person ;
+        schema:rangeIncludes schema:Integer .
+
+pied:deathYear a rdf:Property ;
+        rdfs:label "Overlijdensjaar"@nl ;
+        rdfs:comment "Bij personen gebruikt voor het jaar van overlijden als de volledige overlijdensdatum niet bekend is"@nl ;
+        schema:domainIncludes schema:Person ;
+        schema:rangeIncludes schema:Integer .
+
+pied:yearCreated a rdf:Property ;
+        rdfs:label "Creatiejaar"@nl ;
+        rdfs:comment "Bij CreativeWorks gebruikt voor het jaar van creatie als de volledige creatiedatum niet bekend is"@nl ;
+        schema:domainIncludes schema:CreativeWork ;
+        schema:rangeIncludes schema:Integer .
+
+pied:startYear a rdf:Property ;
+        rdfs:label "Startjaar"@nl ;
+        rdfs:comment "Bij gebeurtenissen gebruikt voor het startjaar als de volledige startdatum niet bekend is, bij CreativeWorks te gebruiken om de start van een periode aan te geven waarin het werk gemaakt is."@nl ;
+        schema:domainIncludes schema:Event,
+                schema:CreativeWork;
+        schema:rangeIncludes schema:Integer .
+
+pied:endYear a rdf:Property ;
+        rdfs:label "Eindjaar"@nl ;
+        rdfs:comment "Bij gebeurtenissen gebruikt voor het eindjaar als de volledige startdatum niet bekend is, bij CreativeWorks te gebruiken om het eind van een periode aan te geven waarin het werk gemaakt is."@nl ;
+        schema:domainIncludes schema:Event,
+                schema:CreativeWork;
+        schema:rangeIncludes schema:Integer .
+
+pied:interviewee a rdf:Property ;
+        rdfs:label "Geïnterviewde"@nl ;
+        rdfs:comment "Bij Interviews gebruikt om de relatie met de geïnterviewde te leggen."@nl ;
+        schema:domainIncludes pied:Interview;
+        schema:rangeIncludes schema:Person .
+
+pied:referenceURL a rdf:Property ;
+        rdfs:label "Referentie URL"@nl ;
+        rdfs:comment "Bij entiteiten te gebruiken om een link naar online referentie op te nemen"@nl ;
+        schema:domainIncludes schema:Event,
+                schema:Person,
+                schema:Organization,
+                schema:Place,
+                pied:DefinedTerm,
+                pied:PointOfInterest,
+                pied:LifeEvent ;
+        schema:rangeIncludes schema:URL .
+
+pied:reference a rdf:Property ;
+        rdfs:label "Referentie"@nl ;
+        rdfs:comment "Bij entiteiten te gebruiken om de naam van een online referentie op te nemen"@nl ;
+        schema:domainIncludes schema:Event,
+                schema:Person,
+                schema:Organization,
+                schema:Place,
+                pied:DefinedTerm,
+                pied:PointOfInterest,
+                prov:LifeEvent ;
+        schema:rangeIncludes schema:URL .
+
+pied:imageURL a rdf:Property ;
+        rdfs:label "Afbeeldings-URL"@nl ;
+        rdfs:comment "Te gebruiken om bij entiteiten een link naar een gerelateerde online afbeelding op te nemen"@nl ;
+        schema:domainIncludes schema:Event,
+                schema:Person,
+                schema:Organization,
+                schema:Place,
+                pied:DefinedTerm,
+                pied:PointOfInterest ;
+        schema:rangeIncludes schema:URL .
+
+pied:imageIIIF a rdf:Property ;
+        rdfs:label "Afbeelding-IIIF"@nl ;
+        rdfs:comment "Te gebruiken om bij CreativeWorks of Entiteiten een link naar de afbeelding op een externe IIIF-server op te nemen"@nl ;
+        schema:domainIncludes schema:CreativeWork,
+                schema:Event,
+                schema:Person,
+                schema:Organization,
+                schema:Place,
+                pied:DefinedTerm,
+                pied:PointOfInterest ;
+        schema:rangeIncludes schema:URL .
+
+pied:sourceImage a rdf:Property ;
+        rdfs:label "Afbeeldingsbron"@nl ;
+        rdfs:comment "Te gebruiken om bij de bronpagina van de afbeelding uit de afbeeldings-URL op te nemen"@nl ;
+        schema:domainIncludes schema:Event,
+                schema:Person,
+                schema:Organization,
+                schema:Place,
+                pied:DefinedTerm,
+                pied:PointOfInterest ;
+        schema:rangeIncludes schema:URL .
+
+pied:alternativeImage a rdf:Property ;
+        rdfs:label "Alternatieve afbeelding"@nl ;
+        rdfs:comment "Te gebruiken om een tweede afbeelding op te nemen"@nl ;
+        schema:domainIncludes schema:Event,
+                schema:Person,
+                schema:Organization,
+                schema:Place,
+                pied:DefinedTerm,
+                pied:PointOfInterest,
+                pied:Story ;
+        schema:rangeIncludes schema:URL .
+
+pied:foundingYear a rdf:Property ;
+        rdfs:label "Oprichtingsjaar"@nl ;
+        rdfs:comment "Bij organisaties gebruiken om het jaar van oprichting vast te leggen, wanneer de volledige datum niet bekend is"@nl ;
+        schema:domainIncludes schema:Organization,
+                schema:PointofInterest ;
+        schema:rangeIncludes schema:Integer .
+
+pied:dissolutionYear a rdf:Property ;
+        rdfs:label "Opheffingsjaar"@nl ;
+        rdfs:comment "Bij organisaties gebruiken om het jaar van opheffing vast te leggen, wanneer de volledige datum niet bekend is"@nl ;
+        schema:domainIncludes schema:Organization,
+                schema:PointofInterest ;
+        schema:rangeIncludes schema:Integer .
+
+# Rights
+
+pied:Rights a rdfs:Class ;
+	rdfs:label "Rechten"@nl ;
+	rdf:comment "Rights Statement"@en .
+
