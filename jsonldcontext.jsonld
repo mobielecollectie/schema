@@ -14,12 +14,25 @@
         "Vehicle": {
             "@id": "schema:Vehicle"
         },
+        "QuantitativeValue": {
+            "@id": "schema:QuantitativeValue"
+        },
+        "URL": {
+            "@id": "schema:URL"
+        },
+        "Concept": {
+            "@id": "skos:Concept"
+        },
         "Ship": {
             "@id": "mcn:Ship"
+        },
+        "Train": {
+            "@id": "mcn:Train"
         },
         "type": {
             "@id": "rdf:type"
         },
+        "id": "@id",
         "identifier": {
             "@id": "schema:identifier"
         },
@@ -31,6 +44,42 @@
         },
         "dateCreated": {
             "@id": "schema:dateCreated"
+        },
+        "material": {
+            "@id": "schema:material"
+        },
+        "length": {
+            "@id": "schema:length"
+        },
+        "width": {
+            "@id": "schema:width"
+        },
+        "depth": {
+            "@id": "schema:depth"
+        },
+        "productionDate": {
+            "@id": "schema:productionDate"
+        },
+        "productionOrganization": {
+            "@id": "schema:productionOrganization"
+        },
+        "propulsion": {
+            "@id": "mcn:propulsion"
+        },
+        "usage": {
+            "@id": "mcn:usage"
+        },
+        "vehicleEntine": {
+            "@id": "schema:vehicleEngine"
+        },
+        "unitCode": {
+            "@id": "schema:unitCode"
+        },
+        "value": {
+            "@id": "schema:value"
+        },
+        "url": {
+            "@id": "schema:url"
         }
     }
 }

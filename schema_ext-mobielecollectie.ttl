@@ -13,10 +13,21 @@ mcn:Ship a rdfs:Class ;
         rdfs:subClassOf schema:Vehicle ;
         rdfs:comment "Een schip."@nl .
 
+mcn:Train a rdfs:Class ;
+        rdfs:label "Trein"@nl ;
+        rdfs:subClassOf schema:Vehicle ;
+        rdfs:comment "Een trein."@nl .
+
 ## Properties
 
 mcn:propulsion a rdf:Property ;
         rdfs:label "Voorstuwing"@nl ;
+        rdfs:comment ""@nl ;
+        schema:domainIncludes schema:Vehicle ;
+        schema:rangeIncludes skos:Concept .
+
+mcn:usage a rdf:Property ;
+        rdfs:label "Gebruik"@nl ;
         rdfs:comment ""@nl ;
         schema:domainIncludes schema:Vehicle ;
         schema:rangeIncludes skos:Concept .
