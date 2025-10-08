@@ -36,4 +36,4 @@ mcn:draft a rdf:Property ;
         rdfs:label "Diepgang"@nl ;
         rdfs:comment "Diepgang van een schip."@nl ;
         schema:domainIncludes mcn:Ship ;
-        schema:rangeIncludes skos:Concept .
+        schema:rangeIncludes schema:QuantitativeValue .
