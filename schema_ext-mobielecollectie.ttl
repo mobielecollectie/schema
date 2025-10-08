@@ -1,0 +1,22 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix mcn: <https://schema.mobielecollectie.nl/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core> .
+
+### This file defines and extension of schema.org for mobiele collectie
+
+## subClasses of schema:Vehicle
+
+mcn:Ship a rdfs:Class ;
+        rdfs:label "Schip"@nl ;
+        rdfs:subClassOf schema:Vehicle ;
+        rdfs:comment "Een schip."@nl .
+
+## Properties
+
+mcn:propulsion a rdf:Property ;
+        rdfs:label "Voorstuwing"@nl ;
+        rdfs:comment ""@nl ;
+        schema:domainIncludes schema:Vehicle ;
+        schema:rangeIncludes skos:Concept .
