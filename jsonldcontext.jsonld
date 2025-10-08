@@ -48,14 +48,17 @@
         "material": {
             "@id": "schema:material"
         },
-        "length": {
-            "@id": "schema:length"
+        "height": {
+            "@id": "schema:height"
         },
         "width": {
             "@id": "schema:width"
         },
         "depth": {
             "@id": "schema:depth"
+        },
+        "draft": {
+            "@id": "mcn:draft"
         },
         "productionDate": {
             "@id": "schema:productionDate"
@@ -69,7 +72,7 @@
         "usage": {
             "@id": "mcn:usage"
         },
-        "vehicleEntine": {
+        "vehicleEngine": {
             "@id": "schema:vehicleEngine"
         },
         "unitCode": {

@@ -31,3 +31,9 @@ mcn:usage a rdf:Property ;
         rdfs:comment ""@nl ;
         schema:domainIncludes schema:Vehicle ;
         schema:rangeIncludes skos:Concept .
+
+mcn:draft a rdf:Property ;
+        rdfs:label "Diepgang"@nl ;
+        rdfs:comment "Diepgang van een schip."@nl ;
+        schema:domainIncludes mcn:Ship ;
+        schema:rangeIncludes skos:Concept .
