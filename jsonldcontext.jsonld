@@ -8,6 +8,9 @@
         "Thing": {
             "@id": "schema:Thing"
         },
+        "Product": {
+            "@id": "schema:Product"
+        },
         "Vehicle": {
             "@id": "schema:Vehicle"
         },
