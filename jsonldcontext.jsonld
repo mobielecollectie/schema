@@ -8,6 +8,9 @@
         "Vehicle": {
             "@id": "schema:Vehicle"
         },
+        "Ship": {
+            "@id": "mcn:Ship"
+        },
         "type": {
             "@id": "rdf:type"
         },
